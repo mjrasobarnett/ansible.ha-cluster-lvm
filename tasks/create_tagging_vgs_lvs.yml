@@ -19,7 +19,7 @@
     size: "{{ item.1.size }}"
     opts: --addtag pacemaker --config "activation{volume_list=['@pacemaker']} global{locking_type=1}"
   notify: deactivate LV
-  when: vg_created|changed
+  when: vg_created is changed
   with_subelements:
     - "{{ tagging_vgs }}"
     - lvs
