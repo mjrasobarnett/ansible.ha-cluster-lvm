@@ -36,6 +36,7 @@
   service:
     name: 'lvm2-lvmetad'
     enabled: false
+    masked: yes
     state: 'stopped'
   ignore_errors: True
   # ignore failures as in the earlier version of EL6 the service didn't existed
