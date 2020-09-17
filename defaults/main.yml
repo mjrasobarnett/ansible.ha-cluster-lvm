@@ -22,3 +22,6 @@ HALVMtype: "tagging"
 # by default only Resilient Storage is enabled when CLVMD should be used
 enable_repos: true
 enable_eus_repos: false
+
+# Boolean to control which node executes any LVM creation tasks
+cluster_lvm_control_node: false
