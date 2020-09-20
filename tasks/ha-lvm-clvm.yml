@@ -33,20 +33,23 @@
     name: 'controld'
     resource_type: 'controld'
     options: 'clone interleave=true ordered=true'
-  when: ansible_distribution_major_version == "7"
-  when: cluster_lvm_control_node | bool
+  when:
+    - ansible_distribution_major_version == "7"
+    - cluster_lvm_control_node | bool
 
 - name: Create clvm pacemaker resource
   pcs_resource:
     name: 'clvm'
     resource_type: 'clvm'
     options: 'clone interleave=true ordered=true'
-  when: ansible_distribution_major_version == "7"
-  when: cluster_lvm_control_node | bool
+  when:
+    - ansible_distribution_major_version == "7"
+    - cluster_lvm_control_node | bool
 
 - name: Ensure that controld resource starts before clvm resource
   pcs_constraint_order:
     resource1: 'controld-clone'
     resource2: 'clvm-clone'
-  when: ansible_distribution_major_version == "7"
-  when: cluster_lvm_control_node | bool
+  when:
+    - ansible_distribution_major_version == "7"
+    - cluster_lvm_control_node | bool

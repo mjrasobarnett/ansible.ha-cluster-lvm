@@ -5,7 +5,6 @@
     pvs: "{{ item.pvs }}"
   with_items:
     - "{{ systemid_vgs }}"
-  when: cluster_lvm_control_node | bool
 
 - name: create LVs on systemid VG
   lvol:
@@ -15,4 +14,3 @@
   with_subelements:
     - "{{ systemid_vgs }}"
     - lvs
-  when: cluster_lvm_control_node | bool

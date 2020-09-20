@@ -10,7 +10,6 @@
   register: vg_created
   with_items:
     - "{{ tagging_vgs }}"
-  when: cluster_lvm_control_node | bool
 
 - name: create one LV on pacemaker activated VG
   lvol:
@@ -23,4 +22,3 @@
   with_subelements:
     - "{{ tagging_vgs }}"
     - lvs
-  when: cluster_lvm_control_node | bool

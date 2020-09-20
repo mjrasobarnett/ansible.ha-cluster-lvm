@@ -6,7 +6,6 @@
     vg_options: -cy
   with_items:
     - "{{ clvm_vgs }}"
-  when: cluster_lvm_control_node | bool
 
 - name: create LV on clustered VG
   lvol:
@@ -16,4 +15,3 @@
   with_subelements:
     - "{{ clvm_vgs }}"
     - lvs
-  when: cluster_lvm_control_node | bool
